@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -17,14 +19,35 @@ jobs:
       - name: Install LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-extra
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra jq curl
 
       - name: Compile PDF
         working-directory: resumes
         run: pdflatex -interaction=nonstopmode 2026-fullstack.tex
 
-      - name: Upload PDF
+      - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Resume-PDF
           path: resumes/2026-fullstack.pdf
+
+      - name: Upload to tmpfiles.org
+        id: tmpfiles
+        working-directory: resumes
+        run: |
+          response=$(curl -s -F "file=@2026-fullstack.pdf" https://tmpfiles.org/api/v1/upload)
+          url=$(echo $response | jq -r '.data.url')
+          echo "Uploaded to: $url"
+          echo "PDF_DESC_URL=$url" >> $GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.sha }}
+          name: Release ${{ github.sha }}
+          body: |
+            Auto-generated PDF build.
+            
+            **[Download from tmpfiles.org](${{ env.PDF_DESC_URL }})** (Expires in 60 minutes)
+          files: resumes/2026-fullstack.pdf
+
