@@ -1,0 +1,107 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Custom Colors
+\definecolor{primary}{RGB}{0, 0, 0}
+
+% Section Formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+% Custom command for aligned rows
+\newcommand{\resumeHeaderLine}[2]{
+  \noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2 \\
+  \end{tabular*}\vspace{-2pt}
+}
+
+\begin{document}
+
+% --- HEADER ---
+\begin{center}
+    {\Huge \textbf{Abhay Sharma}} \\
+    \vspace{4pt}
+    Senior Frontend Developer \\
+    \vspace{2pt}
+    Faridabad, Haryana, India $\cdot$ +91 7210089184 $\cdot$ \href{mailto:whoabhaysharma@gmail.com}{whoabhaysharma@gmail.com} \\
+    \vspace{2pt}
+    \href{https://linkedin.com/in/whoabhaysharma}{linkedin.com/in/whoabhaysharma} $\cdot$ \href{https://github.com/whoabhaysharma}{github.com/whoabhaysharma} $\cdot$ \href{https://abhaysharma.pages.dev}{portfolio}
+\end{center}
+
+% --- SUMMARY ---
+\section{Professional Summary}
+Senior Full Stack Developer with 4+ years of experience specializing in high-performance SaaS platforms. Expert in React.js, Next.js, and TypeScript, complemented by extensive experience building scalable backend architectures with Node.js and Express. Proven ability to lead projects end-to-end—from initial UI/UX design in Figma to full-stack implementation and production deployment.
+
+% --- SKILLS ---
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, labelsep=0.5em]
+    \item \textbf{Frontend:} JavaScript (ES6+), TypeScript, React.js, Next.js, Redux, HTML5, CSS3, Tailwind CSS, Webpack
+    \item \textbf{Design:} Figma (UX/UI Design), Responsive Design, Prototyping
+    \item \textbf{Backend/Integration:} Node.js, Express.js, Prisma, RESTful APIs, WhatsApp Cloud API
+    \item \textbf{Tools:} Git, GitHub, Docker, AWS, Vercel, Netlify
+\end{itemize}
+
+% --- EXPERIENCE ---
+\section{Professional Experience}
+
+\resumeHeaderLine{Techcrumb Solution Pvt. Ltd. (Dilogs.com)}{Faridabad, India}
+\textit{Senior Frontend Developer} \hfill Oct 2025 – Present
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Spearheaded the end-to-end UX/UI design and frontend development for an AI-powered video ad creation platform.
+    \item Designed the entire user interface from scratch in Figma, focusing on a seamless workflow for generating long and short-form video content.
+    \item Developed a custom web-based video editor allowing users to merge, trim, and combine multiple AI-generated ads into a single cohesive video campaign.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeHeaderLine{Techcrumb Solution Pvt. Ltd. (Performoo.com)}{Faridabad, India}
+\textit{Frontend Developer} \hfill June 2022 – Oct 2025
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Architected and built a comprehensive ad-unit and campaign management platform from scratch using React, Webpack, and Next.js.
+    \item Engineered an internal framework to render high-engagement rich media formats (including full-screen overlays and interactive banners) while capturing detailed real-time analytics.
+    \item Maintained and optimized a core video ad player, ensuring low-latency playback and cross-browser compatibility.
+    \item Collaborated closely with the design team to translate complex creative requirements into functional, high-performance components.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeHeaderLine{Techcrumb Solution Pvt. Ltd.}{Faridabad, India}
+\textit{Frontend Developer Intern} \hfill Nov 2021 – Apr 2022
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Optimized asset delivery for an ad player platform and enhanced UI responsiveness.
+\end{itemize}
+
+% --- PROJECTS ---
+\section{Key Projects}
+
+\resumeHeaderLine{QuixHR.com | Leave Management SaaS}{Next.js, Express.js, Prisma}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Developed a multi-tenant leave management system for automated employee requests, approvals, and HR tracking.
+    \item Built scalable database schemas using Prisma to handle organizational hierarchies and multi-company data isolation.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeHeaderLine{Gyms24.in | Gym Booking Platform}{React, Node.js, WhatsApp API}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Engineered a gym discovery and booking platform utilizing the WhatsApp Cloud API for direct user communication and lead management.
+    \item Integrated a secure QR code verification system for gym owners to scan and verify membership status at entry points.
+\end{itemize}
+
+% --- EDUCATION ---
+\section{Education}
+\resumeHeaderLine{Echelon Institute of Technology}{Faridabad, India}
+\textit{B.Tech., Computer Science \& Engineering (GPA: 7.4/10)} \hfill 2018 – 2022
+
+% --- INTERESTS ---
+\section{Interests}
+Watching sci-fi movies, creating innovative solutions for daily life problems, and listening to music.
+
+\end{document}

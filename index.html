@@ -191,20 +191,21 @@
     <header>
         <div class="grid">
             <div class="col-12">
-                <div style="font-weight: 700; text-transform: uppercase; margin-bottom: 10px;">
-                    Portfolio_v3.0_Final_Final_V2</div>
                 <h1>Hi.<br>I'm Abhay.</h1>
             </div>
             <div class="col-8">
                 <p style="font-size: 1.5rem; font-weight: 700;">
-                    Building digital products that are just barely stable enough to demo.
+                    I build things. Sometimes they even work.
                 </p>
                 <p>
-                    I am a Full-Stack Engineer who specializes in turning simple problems into complex headaches. Based
-                    in 2026.
+                    Full-Stack Engineer. Expert at turning coffee into compile errors and 'quick fixes' into 'permanent
+                    legacy code'. Currently based in Faridabad, creating bugs you haven't found yet.
                 </p>
             </div>
-            <div class="col-4" style="text-align: right; align-self: end;">
+            <div class="col-4"
+                style="text-align: right; align-self: end; display: flex; flex-direction: column; gap: 15px; align-items: flex-end;">
+                <a href="blog/index.html" class="btn">Brain_Dump (Blog)</a>
+                <a href="resume.pdf" class="btn">Overinflated_Resume.pdf</a>
                 <a href="#contact" class="btn">Hate Mail ↓</a>
             </div>
         </div>
@@ -212,51 +213,67 @@
 
     <main>
 
-        <!-- MANIFESTO -->
+        <!-- TECH STACK -->
         <div class="grid">
             <div class="section-title-wrapper">
-                <h2>The Truth</h2>
+                <h2>Tech Stack & Disclaimers</h2>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <div class="card">
-                    <span class="badge">Philosophy</span>
-                    <h3 style="margin-bottom: 20px;">Move Fast & Break Things</h3>
-                    <p>
-                        ...including the build pipeline, the database schema, and my own spirit. I believe in code that
-                        works, even if I don't know why.
+                    <span class="badge">FRONTEND</span>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">React / Next.js</h3>
+                    <p style="font-size: 0.9rem;">
+                        I use these because I'm terrified of vanilla DOM manipulation. If it's not a component, does it
+                        even exist?
                     </p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <div class="card">
-                    <span class="badge">Reality Check</span>
-                    <h3 style="margin-bottom: 20px;">Stack Overflow</h3>
-                    <p>
-                        Let's be real. 90% of my code is just CTRL+C / CTRL+V from someone smarter than me. I'm just the
-                        middleman.
+                    <span class="badge">BACKEND</span>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Node / Express</h3>
+                    <p style="font-size: 0.9rem;">
+                        JavaScript on the server? Yes, because context-switching to a second language is simply asking
+                        too much of my brain.
+                    </p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <span class="badge">DEVOPS</span>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Docker / AWS</h3>
+                    <p style="font-size: 0.9rem;">
+                        I have no idea what Kubernetes is, and at this point, I am too afraid to ask. I just pay the AWS
+                        bill and pray.
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- STATS -->
+        <!-- SCHEDULE -->
         <div class="grid">
-            <div class="col-4">
-                <div class="card" style="text-align: center;">
-                    <div class="stat-number">404</div>
-                    <div style="font-weight: 700; margin-top: 10px;">Errors / Day</div>
-                </div>
+            <div class="section-title-wrapper">
+                <h2>A Day in the Life</h2>
             </div>
-            <div class="col-4">
-                <div class="card" style="text-align: center;">
-                    <div class="stat-number">∞</div>
-                    <div style="font-weight: 700; margin-top: 10px;">Coffee Consumed</div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card" style="text-align: center;">
-                    <div class="stat-number">1%</div>
-                    <div style="font-weight: 700; margin-top: 10px;">Test Coverage</div>
+            <div class="col-12">
+                <div class="card">
+                    <div style="font-family: 'Space Mono', monospace; font-size: 1rem;">
+                        <div style="margin-bottom: 15px; border-bottom: 4px solid #000; padding-bottom: 10px;">
+                            <strong>09:00 AM</strong> — Open VS Code. Close VS Code. Open it again to feel productive.
+                        </div>
+                        <div style="margin-bottom: 15px; border-bottom: 4px solid #000; padding-bottom: 10px;">
+                            <strong>11:00 AM</strong> — Standup meeting. I say "Blocked by backend" (I am the backend).
+                        </div>
+                        <div style="margin-bottom: 15px; border-bottom: 4px solid #000; padding-bottom: 10px;">
+                            <strong>02:00 PM</strong> — Fix a bug by commenting out the test that failed.
+                        </div>
+                        <div style="margin-bottom: 15px; border-bottom: 4px solid #000; padding-bottom: 10px;">
+                            <strong>04:00 PM</strong> — Push to production on a Friday. Immediate regret.
+                        </div>
+                        <div>
+                            <strong>03:00 AM</strong> — Configuring Webpack. Crying.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -317,6 +334,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- FOOTER -->
         <div id="contact" class="grid" style="margin-top: 80px; border-top: var(--border); padding-top: 60px;">
