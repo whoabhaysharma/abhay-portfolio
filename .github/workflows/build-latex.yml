@@ -6,6 +6,7 @@ on:
     paths:
       - "**.tex"
       - ".github/workflows/build-latex.yml"
+      - "scripts/build_resumes.py"
 
 jobs:
   build:
@@ -14,32 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install LaTeX
+      - name: Install LaTeX and Tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-extra jq curl
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra curl python3
 
-      - name: Compile PDF
-        working-directory: resumes
-        run: pdflatex -interaction=nonstopmode 2026-fullstack.tex
+      - name: Build and Notify
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python3 scripts/build_resumes.py
 
-      - name: Upload PDF Artifact
+      - name: Upload PDF Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Resume-PDF
-          path: resumes/2026-fullstack.pdf
-
-      - name: Upload to tmpfiles.org
-        id: tmpfiles
-        working-directory: resumes
-        run: |
-          response=$(curl -s -F "file=@2026-fullstack.pdf" https://tmpfiles.org/api/v1/upload)
-          url=$(echo $response | jq -r '.data.url')
-          echo "Uploaded to: $url"
-          echo "PDF_DESC_URL=$url" >> $GITHUB_ENV
-
-      - name: Notify Slack
-        if: always()
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Resume PDF Build Complete! Download here: '"$PDF_DESC_URL"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
-
+          name: Resume-PDFs
+          path: resumes/*.pdf
