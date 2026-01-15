@@ -1,0 +1,84 @@
+name: Build and Deploy Portfolio
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.tex"
+      - "**.html"
+      - ".github/workflows/deploy.yml"
+      - "blog/**"
+      - "resumes/**"
+      - "robots.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra jq curl
+
+      - name: Compile PDF
+        working-directory: resumes
+        run: pdflatex -interaction=nonstopmode 2026-fullstack.tex
+
+      - name: Prepare Site Assets
+        run: |
+          mkdir public
+          cp index.html public/
+          cp robots.txt public/
+          cp -r blog public/
+          cp resumes/2026-fullstack.pdf public/resume.pdf
+          cp resumes/2026-fullstack.pdf resume.pdf # Keep a copy in root for legacy steps if needed
+
+      - name: Upload PDF Artifact (Reference)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Resume-PDF
+          path: resume.pdf
+
+      # Legacy Notification Steps
+      - name: Upload to tmpfiles.org
+        id: tmpfiles
+        run: |
+          response=$(curl -s -F "file=@resume.pdf" https://tmpfiles.org/api/v1/upload)
+          url=$(echo $response | jq -r '.data.url')
+          echo "Uploaded to: $url"
+          echo "PDF_DESC_URL=$url" >> $GITHUB_ENV
+
+      - name: Notify Slack
+        if: always()
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Resume PDF Build & Deploy Complete! Download PDF: '"$PDF_DESC_URL"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      # GitHub Pages Deployment
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # Cloudflare Pages Deployment
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: portfolio
+          directory: public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
