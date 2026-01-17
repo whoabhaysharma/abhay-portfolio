@@ -4,7 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhay Sharma // NO_DARK_MODE</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <title>Abhay Sharma // Full Stack Engineer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Full-Stack Engineer. Expert at turning coffee into compile errors. Brutalist portfolio of Abhay Sharma.">
+    <meta name="keywords"
+        content="Abhay Sharma, Full Stack Engineer, Web Developer, Brutalist Design, Portfolio, React, Node.js">
+    <meta name="author" content="Abhay Sharma">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#e8e4d8">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abhaysharma.pages.dev/">
+    <meta property="og:title" content="Abhay Sharma // Full Stack Engineer">
+    <meta property="og:description" content="I build things. Sometimes they even work.">
+    <meta property="og:image" content="https://abhaysharma.pages.dev/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://abhaysharma.pages.dev/">
+    <meta property="twitter:title" content="Abhay Sharma // Full Stack Engineer">
+    <meta property="twitter:description" content="I build things. Sometimes they even work.">
+    <meta property="twitter:image" content="https://abhaysharma.pages.dev/og-image.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abhay Sharma",
+      "url": "https://abhaysharma.pages.dev",
+      "image": "https://abhaysharma.pages.dev/og-image.png",
+      "sameAs": [
+        "https://github.com/whoabhaysharma",
+        "https://twitter.com/whoabhaysharma",
+        "https://linkedin.com/in/whoabhaysharma"
+      ],
+      "jobTitle": "Full Stack Engineer",
+      "description": "Full-Stack Engineer building things that mostly work."
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,7 +58,7 @@
     <style>
         :root {
             /* Warm paper tone */
-            --bg: #e8e4d8; 
+            --bg: #e8e4d8;
             --fg: #000000;
             --border: 4px solid #000000;
             --shadow: 10px 10px 0px #000000;
@@ -27,7 +71,7 @@
         }
 
         /* --- THE ROUGH PAPER TEXTURE LAYERS --- */
-        
+
         /* Layer 1: Fine Grit/Noise */
         body::before {
             content: "";
@@ -53,7 +97,8 @@
             opacity: 0.15;
             pointer-events: none;
             z-index: 9998;
-            mix-blend-mode: multiply; /* Sinks the texture into the color */
+            mix-blend-mode: multiply;
+            /* Sinks the texture into the color */
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fiberFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='5' stitchTiles='stitch'/%3E%3CfeContrast amount='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fiberFilter)'/%3E%3C/svg%3E");
         }
 
@@ -106,7 +151,8 @@
             text-decoration: none;
             border-bottom: 2px solid var(--fg);
             position: relative;
-            z-index: 10001; /* Ensure links stay above texture */
+            z-index: 10001;
+            /* Ensure links stay above texture */
         }
 
         a:hover {
@@ -122,14 +168,33 @@
             margin-bottom: 60px;
         }
 
-        .col-4 { grid-column: span 4; }
-        .col-6 { grid-column: span 6; }
-        .col-8 { grid-column: span 8; }
-        .col-12 { grid-column: span 12; }
+        .col-4 {
+            grid-column: span 4;
+        }
+
+        .col-6 {
+            grid-column: span 6;
+        }
+
+        .col-8 {
+            grid-column: span 8;
+        }
+
+        .col-12 {
+            grid-column: span 12;
+        }
 
         @media (max-width: 900px) {
-            .col-4, .col-6, .col-8 { grid-column: span 12; }
-            body { padding: 10px; }
+
+            .col-4,
+            .col-6,
+            .col-8 {
+                grid-column: span 12;
+            }
+
+            body {
+                padding: 10px;
+            }
         }
 
         /* --- COMPONENTS --- */
@@ -137,7 +202,7 @@
             border: var(--border);
             padding: 30px;
             /* Slightly transparent to let the 'rough' texture through */
-            background: rgba(232, 228, 216, 0.4); 
+            background: rgba(232, 228, 216, 0.4);
             backdrop-filter: blur(0.5px);
             transition: transform 0.2s, box-shadow 0.2s;
             height: 100%;
@@ -292,8 +357,7 @@
             </div>
 
             <div class="col-6">
-                <a href="https://QuixHR.com" target="_blank" class="card"
-                    style="text-decoration: none;">
+                <a href="https://QuixHR.com" target="_blank" class="card" style="text-decoration: none;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                         <span class="badge">HR TECH</span>
                         <i data-lucide="external-link"></i>
@@ -309,8 +373,7 @@
             </div>
 
             <div class="col-6">
-                <a href="https://Gyms24.in" target="_blank" class="card"
-                    style="text-decoration: none;">
+                <a href="https://Gyms24.in" target="_blank" class="card" style="text-decoration: none;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                         <span class="badge">BOOKING SYS</span>
                         <i data-lucide="external-link"></i>
@@ -339,7 +402,7 @@
             </div>
         </div>
 
-        <div id="contact" class="grid" style="margin-top: 80px; border-top: var(--border); padding-top: 60px;">
+        <footer id="contact" class="grid" style="margin-top: 80px; border-top: var(--border); padding-top: 60px;">
             <div class="col-8">
                 <h2>Hire Me?</h2>
                 <p>
@@ -360,7 +423,7 @@
                     © 2026 ABHAY. NO RIGHTS RESERVED.
                 </div>
             </div>
-        </div>
+        </footer>
 
     </main>
 
