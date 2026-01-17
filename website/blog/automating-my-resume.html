@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -38,6 +38,7 @@
             --grey: #a1a1a1;
             --soft-grey: #f5f5f5;
             --font-main: 'Inter', sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
         }
 
         * {
@@ -53,6 +54,8 @@
             font-family: var(--font-main);
             line-height: 1.6;
             padding: 0 5%;
+            background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         /* --- NAVIGATION --- */
@@ -89,6 +92,65 @@
             opacity: 0.8;
         }
 
+        .btn-outline {
+            border: 1px solid #ddd;
+            background: transparent;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--soft-grey);
+        }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            transform: translateX(100%);
+            /* Hidden by default */
+        }
+
+        .dropdown-link {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-link:hover {
+            -webkit-text-stroke: 1px #000;
+            color: transparent;
+        }
+
+        .menu-close-btn {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
         /* --- ARTICLE --- */
         article {
             max-width: 800px;
@@ -102,28 +164,35 @@
             margin-bottom: 40px;
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--grey);
+            color: var(--fg);
+            font-family: var(--font-mono);
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
         }
 
         article h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
             line-height: 1.1;
             letter-spacing: -0.02em;
             margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
         article h2 {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 900;
             margin-top: 60px;
             margin-bottom: 20px;
-            letter-spacing: -0.01em;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            border-left: 5px solid #000;
+            padding-left: 20px;
         }
 
         article h3 {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-top: 40px;
             margin-bottom: 15px;
         }
@@ -132,41 +201,51 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 25px;
-            color: #333;
+            color: #000;
+            font-weight: 500;
         }
 
         article a {
             color: var(--fg);
             text-decoration: underline;
-            font-weight: 600;
+            font-weight: 700;
+            background: #eee;
+            padding: 0 4px;
         }
 
         article a:hover {
-            opacity: 0.7;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
         }
 
         article img {
             width: 100%;
-            border-radius: 16px;
+            border: 2px solid #000;
+            box-shadow: 8px 8px 0 #000;
             margin: 40px 0;
+            border-radius: 16px;
         }
 
         article code {
-            background: var(--soft-grey);
+            background: #eee;
             padding: 3px 8px;
-            border-radius: 4px;
+            border: 1px solid #000;
             font-family: 'Courier New', monospace;
-            font-size: 0.95em;
+            font-size: 0.9em;
+            font-weight: 600;
         }
 
         article ul {
             margin: 20px 0;
             padding-left: 30px;
+            list-style-type: square;
         }
 
         article li {
             margin-bottom: 12px;
             line-height: 1.7;
+            font-weight: 500;
         }
 
         /* --- STACK GRID --- */
@@ -178,38 +257,56 @@
         }
 
         .stack-item {
-            background: var(--soft-grey);
+            background: #fff;
             padding: 30px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            transition: transform 0.2s;
             border-radius: 16px;
+        }
+
+        .stack-item:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 #000;
         }
 
         .stack-item h3 {
             font-size: 1.2rem;
             margin-top: 0;
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .stack-item p {
             font-size: 0.95rem;
             margin-bottom: 15px;
-            color: var(--grey);
+            color: #444;
+            font-family: var(--font-mono);
         }
 
         .stack-item a {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: none;
+            padding: 0;
+            text-decoration: none;
+            border-bottom: 2px solid #000;
         }
 
         /* --- FOOTER --- */
         .article-footer {
             margin-top: 80px;
             padding-top: 40px;
-            border-top: 1px solid #eee;
+            border-top: 3px solid #000;
             text-align: center;
         }
 
         .article-footer p {
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
         }
 
         @media (max-width: 768px) {
@@ -220,6 +317,10 @@
             .stack-grid {
                 grid-template-columns: 1fr;
             }
+
+            article {
+                padding-top: 40px;
+            }
         }
     </style>
 </head>
@@ -228,8 +329,23 @@
 
     <nav>
         <a href="index.html" class="logo">abhay.</a>
-        <a href="../index.html#contact" class="btn-pill">Let's Talk <i data-lucide="arrow-up-right" size="18"></i></a>
+        <div class="nav-right" style="display: flex; gap: 20px; align-items: center;">
+            <a href="../index.html#contact" class="btn-pill">Let's Talk <i data-lucide="arrow-up-right"
+                    size="18"></i></a>
+            <button class="btn-outline" id="menuBtn"><i data-lucide="menu" size="20"></i></button>
+        </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="menu-close-btn" id="closeMenu">
+            <i data-lucide="x" size="40"></i>
+        </button>
+        <a href="../index.html#work" class="dropdown-link">Incident Reports</a>
+        <a href="../resume.pdf" target="_blank" class="dropdown-link">Resume</a>
+        <a href="index.html" class="dropdown-link">Blog</a>
+        <a href="mailto:whoabhaysharma@gmail.com" class="dropdown-link">Contact</a>
+    </div>
 
     <article>
         <div class="article-meta">
@@ -344,6 +460,57 @@
 
     <script>
         lucide.createIcons();
+
+        // GSAP Animations for Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const links = document.querySelectorAll('.dropdown-link');
+
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            if (isMenuOpen) return;
+            isMenuOpen = true;
+
+            gsap.to(mobileMenu, {
+                x: '0%',
+                duration: 0.6,
+                ease: 'power3.inOut'
+            });
+
+            gsap.fromTo(links,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    delay: 0.2,
+                    ease: 'power2.out'
+                }
+            );
+        });
+
+        closeMenu.addEventListener('click', () => {
+            isMenuOpen = false;
+            gsap.to(mobileMenu, {
+                x: '100%',
+                duration: 0.6,
+                ease: 'power3.inOut'
+            });
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                gsap.to(mobileMenu, {
+                    x: '100%',
+                    duration: 0.6,
+                    ease: 'power3.inOut'
+                });
+            });
+        });
     </script>
 </body>
 

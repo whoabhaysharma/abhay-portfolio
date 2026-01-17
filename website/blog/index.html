@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -17,6 +18,7 @@
             --grey: #a1a1a1;
             --soft-grey: #f5f5f5;
             --font-main: 'Inter', sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
         }
 
         * {
@@ -32,6 +34,8 @@
             font-family: var(--font-main);
             line-height: 1.4;
             padding: 0 5%;
+            background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         /* --- NAVIGATION --- */
@@ -74,6 +78,69 @@
             opacity: 0.8;
         }
 
+        .btn-pill:hover {
+            opacity: 0.8;
+        }
+
+        .btn-outline {
+            border: 1px solid #ddd;
+            background: transparent;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--soft-grey);
+        }
+
+        /* --- MOBILE MENU --- */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            transform: translateX(100%);
+            /* Hidden by default */
+        }
+
+        .dropdown-link {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-link:hover {
+            -webkit-text-stroke: 1px #000;
+            color: transparent;
+        }
+
+        .menu-close-btn {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
         /* --- HEADER --- */
         .header {
             padding: 60px 0 100px;
@@ -81,98 +148,126 @@
         }
 
         .header h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(3rem, 6vw, 6rem);
             font-weight: 900;
-            line-height: 1;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
         }
 
         .header p {
             font-size: 1.25rem;
-            color: var(--grey);
-            font-weight: 500;
+            color: #000;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            max-width: 600px;
         }
 
-        /* --- BLOG POSTS --- */
-        .posts-container {
-            max-width: 900px;
+        /* --- BLOG POSTS (BENTO GRID) --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
             padding-bottom: 100px;
         }
 
         .post-card {
-            background: var(--soft-grey);
+            background: #ffffff;
+            border: 2px solid #000;
             padding: 40px;
-            border-radius: 24px;
-            margin-bottom: 30px;
+            border-radius: 16px;
             text-decoration: none;
             color: inherit;
-            display: block;
-            transition: transform 0.3s ease;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            min-height: 250px;
         }
 
         .post-card:hover {
-            transform: translateY(-5px);
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
         }
 
         .post-meta {
             display: flex;
             gap: 15px;
             margin-bottom: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
+            font-family: var(--font-mono);
+            border-bottom: 1px dashed #000;
+            padding-bottom: 15px;
         }
 
         .post-date {
-            color: var(--grey);
+            color: #000;
         }
 
         .post-tag {
-            color: var(--fg);
+            background: #000;
+            color: #fff;
+            padding: 2px 6px;
         }
 
         .post-card h2 {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 900;
             margin-bottom: 15px;
-            line-height: 1.2;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .post-excerpt {
-            color: var(--grey);
+            color: #444;
             font-weight: 500;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-size: 1rem;
         }
 
-        .read-more {
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: inline-flex;
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-top: 1px dashed #000;
+            padding-top: 20px;
         }
 
         /* --- FOOTER --- */
         footer {
             padding: 60px 0;
             text-align: center;
-            border-top: 1px solid #eee;
+            border-top: 3px solid #000;
         }
 
         footer p {
-            color: var(--grey);
+            color: #000;
             font-weight: 700;
             font-size: 0.9rem;
+            font-family: var(--font-mono);
         }
 
         @media (max-width: 768px) {
             .post-card {
-                padding: 30px;
+                padding: 25px;
             }
 
             .header h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+
+            .post-card h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -185,27 +280,58 @@
         <div class="nav-right">
             <a href="../index.html#contact" class="btn-pill">Let's Talk <i data-lucide="arrow-up-right"
                     size="18"></i></a>
+            <button class="btn-outline" id="menuBtn"><i data-lucide="menu" size="20"></i></button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="menu-close-btn" id="closeMenu">
+            <i data-lucide="x" size="40"></i>
+        </button>
+        <a href="../index.html#work" class="dropdown-link">Incident Reports</a>
+        <a href="../resume.pdf" target="_blank" class="dropdown-link">Resume</a>
+        <a href="#" class="dropdown-link">Blog</a>
+        <a href="mailto:whoabhaysharma@gmail.com" class="dropdown-link">Contact</a>
+    </div>
+
     <header class="header">
         <h1>Brain Dump</h1>
-        <p>A collection of rants, mistakes, and occasional victories.</p>
+        <p>> A collection of rants, mistakes, and occasional victories.</p>
     </header>
 
-    <main class="posts-container">
-        <a href="automating-my-resume.html" class="post-card">
+    <main class="bento-grid">
+        <a href="/blog/automating-my-resume.html" class="post-card">
             <div class="post-meta">
                 <span class="post-date">2026-01-17</span>
-                <span class="post-tag">#AUTOMATION #AI</span>
+                <span class="post-tag">#AUTOMATION</span>
             </div>
-            <h2>Automating My Resume with GitHub Actions & AI</h2>
+            <h2>Automating Resume</h2>
             <p class="post-excerpt">
-                Why I stopped editing Word docs. I built a workflow that compiles my resume from LaTeX, builds it in
-                the cloud, and Slacks me a fresh PDF automatically.
+                Why I stopped editing Word docs. I built a workflow that compiles my resume from LaTeX and Slacks me a
+                PDF.
             </p>
-            <span class="read-more">Read More <i data-lucide="arrow-right" size="16"></i></span>
+            <div class="card-footer">
+                <span>READ_LOG --></span>
+                <i data-lucide="arrow-right" size="18"></i>
+            </div>
         </a>
+
+        <!-- Placeholder for consistent grid look -->
+        <div class="post-card" style="opacity: 0.5; border-style: dashed;">
+            <div class="post-meta">
+                <span class="post-date">COMING_SOON</span>
+                <span class="post-tag">#TUTORIAL</span>
+            </div>
+            <h2>The Tutorial Hell</h2>
+            <p class="post-excerpt">
+                Escaping the infinite loop of watching coding videos but never actually building anything.
+            </p>
+            <div class="card-footer">
+                <span>PENDING...</span>
+                <i data-lucide="lock" size="18"></i>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -214,6 +340,77 @@
 
     <script>
         lucide.createIcons();
+
+        // GSAP Animations for Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const links = document.querySelectorAll('.dropdown-link');
+
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            if (isMenuOpen) return;
+            isMenuOpen = true;
+
+            gsap.to(mobileMenu, {
+                x: '0%',
+                duration: 0.6,
+                ease: 'power3.inOut'
+            });
+
+            gsap.fromTo(links,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    delay: 0.2,
+                    ease: 'power2.out'
+                }
+            );
+        });
+
+        closeMenu.addEventListener('click', () => {
+            isMenuOpen = false;
+            gsap.to(mobileMenu, {
+                x: '100%',
+                duration: 0.6,
+                ease: 'power3.inOut'
+            });
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                gsap.to(mobileMenu, {
+                    x: '100%',
+                    duration: 0.6,
+                    ease: 'power3.inOut'
+                });
+            });
+        });
+
+        // Tilt Effect for cards
+        const cards = document.querySelectorAll('.post-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
     </script>
 </body>
 
