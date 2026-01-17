@@ -224,6 +224,38 @@
             box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
             transform: translateY(-2px);
         }
+
+        /* --- UTILITY CLASSES FOR ACTIONS --- */
+        .header-actions {
+            text-align: right;
+            align-self: end;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .footer-links {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 900px) {
+            .header-actions {
+                text-align: left;
+                align-self: flex-start;
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+
+            .footer-links {
+                text-align: left;
+                align-items: flex-start;
+                margin-top: 40px;
+            }
+        }
     </style>
 </head>
 
@@ -243,8 +275,7 @@
                     legacy code'. Currently based in Faridabad, creating bugs you haven't found yet.
                 </p>
             </div>
-            <div class="col-4"
-                style="text-align: right; align-self: end; display: flex; flex-direction: column; gap: 15px; align-items: flex-end;">
+            <div class="col-4 header-actions">
                 <a href="blog/index.html" class="btn">Brain_Dump (Blog)</a>
                 <a href="resume.pdf" class="btn">Overinflated_Resume.pdf</a>
                 <a href="#contact" class="btn">Hate Mail ↓</a>
@@ -378,8 +409,7 @@
                     whoabhaysharma@gmail.com
                 </a>
             </div>
-            <div class="col-4"
-                style="text-align: right; display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="col-4 footer-links">
                 <div style="font-size: 2rem; font-weight: 700;">
                     <div>GITHUB</div>
                     <div>TWITTER</div>
