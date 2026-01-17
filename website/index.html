@@ -13,7 +13,8 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --bg: #ffffff;
+            /* Warm paper tone */
+            --bg: #e8e4d8; 
             --fg: #000000;
             --border: 4px solid #000000;
             --shadow: 10px 10px 0px #000000;
@@ -23,6 +24,37 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* --- THE ROUGH PAPER TEXTURE LAYERS --- */
+        
+        /* Layer 1: Fine Grit/Noise */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Layer 2: Rough Fibers and Pulp Stains */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 9998;
+            mix-blend-mode: multiply; /* Sinks the texture into the color */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fiberFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='5' stitchTiles='stitch'/%3E%3CfeContrast amount='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fiberFilter)'/%3E%3C/svg%3E");
         }
 
         ::selection {
@@ -38,6 +70,7 @@
             padding: 20px;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         /* --- TYPOGRAPHY --- */
@@ -72,6 +105,8 @@
             color: var(--fg);
             text-decoration: none;
             border-bottom: 2px solid var(--fg);
+            position: relative;
+            z-index: 10001; /* Ensure links stay above texture */
         }
 
         a:hover {
@@ -87,44 +122,29 @@
             margin-bottom: 60px;
         }
 
-        .col-4 {
-            grid-column: span 4;
-        }
-
-        .col-6 {
-            grid-column: span 6;
-        }
-
-        .col-8 {
-            grid-column: span 8;
-        }
-
-        .col-12 {
-            grid-column: span 12;
-        }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
 
         @media (max-width: 900px) {
-
-            .col-4,
-            .col-6,
-            .col-8 {
-                grid-column: span 12;
-            }
-
-            body {
-                padding: 10px;
-            }
+            .col-4, .col-6, .col-8 { grid-column: span 12; }
+            body { padding: 10px; }
         }
 
         /* --- COMPONENTS --- */
         .card {
             border: var(--border);
             padding: 30px;
-            background: var(--bg);
+            /* Slightly transparent to let the 'rough' texture through */
+            background: rgba(232, 228, 216, 0.4); 
+            backdrop-filter: blur(0.5px);
             transition: transform 0.2s, box-shadow 0.2s;
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
 
         .card:hover {
@@ -143,12 +163,6 @@
             margin-bottom: 15px;
         }
 
-        .stat-number {
-            font-size: 4rem;
-            font-family: 'Archivo Black', sans-serif;
-            line-height: 1;
-        }
-
         /* --- HEADER --- */
         header {
             margin-bottom: 80px;
@@ -156,16 +170,10 @@
             padding-bottom: 40px;
         }
 
-        /* --- SECTIONS --- */
-        .section-title-wrapper {
-            grid-column: span 12;
-            margin-top: 40px;
-        }
-
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            background: var(--bg);
+            background: transparent;
             color: var(--fg);
             border: var(--border);
             padding: 15px 30px;
@@ -175,6 +183,8 @@
             cursor: pointer;
             text-decoration: none;
             transition: all 0.2s;
+            position: relative;
+            z-index: 10002;
         }
 
         .btn:hover {
@@ -213,9 +223,8 @@
 
     <main>
 
-        <!-- TECH STACK -->
         <div class="grid">
-            <div class="section-title-wrapper">
+            <div class="col-12" style="margin-top: 40px;">
                 <h2>Tech Stack & Disclaimers</h2>
             </div>
             <div class="col-4">
@@ -250,9 +259,8 @@
             </div>
         </div>
 
-        <!-- SCHEDULE -->
         <div class="grid">
-            <div class="section-title-wrapper">
+            <div class="col-12" style="margin-top: 40px;">
                 <h2>A Day in the Life</h2>
             </div>
             <div class="col-12">
@@ -278,16 +286,14 @@
             </div>
         </div>
 
-        <!-- PROJECTS -->
         <div class="grid">
-            <div class="section-title-wrapper">
+            <div class="col-12" style="margin-top: 40px;">
                 <h2>Mistakes (Projects)</h2>
             </div>
 
-            <!-- CARD 1 -->
             <div class="col-6">
                 <a href="https://QuixHR.com" target="_blank" class="card"
-                    style="text-decoration: none; border-bottom: var(--border);">
+                    style="text-decoration: none;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                         <span class="badge">HR TECH</span>
                         <i data-lucide="external-link"></i>
@@ -302,10 +308,9 @@
                 </a>
             </div>
 
-            <!-- CARD 2 -->
             <div class="col-6">
                 <a href="https://Gyms24.in" target="_blank" class="card"
-                    style="text-decoration: none; border-bottom: var(--border);">
+                    style="text-decoration: none;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                         <span class="badge">BOOKING SYS</span>
                         <i data-lucide="external-link"></i>
@@ -320,9 +325,8 @@
                 </a>
             </div>
 
-            <!-- CARD 3 -->
             <div class="col-12">
-                <div class="card" style="opacity: 0.5; cursor: not-allowed; background: #f0f0f0;">
+                <div class="card" style="opacity: 0.5; cursor: not-allowed; background: #d8d4c8;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                         <span class="badge" style="background: #000; color: #fff;">TOP SECRET</span>
                         <i data-lucide="lock"></i>
@@ -335,8 +339,6 @@
             </div>
         </div>
 
-
-        <!-- FOOTER -->
         <div id="contact" class="grid" style="margin-top: 80px; border-top: var(--border); padding-top: 60px;">
             <div class="col-8">
                 <h2>Hire Me?</h2>

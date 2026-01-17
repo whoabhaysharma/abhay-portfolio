@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "**.tex"
+      - 'resume/**'
       - ".github/workflows/build-latex.yml"
 
 jobs:
@@ -20,18 +20,18 @@ jobs:
           sudo apt-get install -y texlive-latex-base texlive-latex-extra jq curl
 
       - name: Compile PDF
-        working-directory: resumes
+        working-directory: resume
         run: pdflatex -interaction=nonstopmode 2026-fullstack.tex
 
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Resume-PDF
-          path: resumes/2026-fullstack.pdf
+          path: resume/2026-fullstack.pdf
 
       - name: Upload to tmpfiles.org
         id: tmpfiles
-        working-directory: resumes
+        working-directory: resume
         run: |
           response=$(curl -s -F "file=@2026-fullstack.pdf" https://tmpfiles.org/api/v1/upload)
           url=$(echo $response | jq -r '.data.url')
