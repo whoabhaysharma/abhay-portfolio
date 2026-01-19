@@ -5,13 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="EhI6rcgCWm5DofNfJmKAY4EcfJ9PgesB7BrmEA1IiZE" />
-    <title>Abhay Sharma // Full Stack Engineer</title>
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <title>Abhay Sharma // Projects</title>
 
     <meta name="description"
         content="Full-Stack Engineer. Expert at turning coffee into compile errors. Portfolio of Abhay Sharma.">
@@ -19,13 +13,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <nav>
-        <div class="logo">abhay.</div>
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">abhay.</a></div>
         <div class="nav-right">
             <a href="mailto:whoabhaysharma@gmail.com" class="btn-pill">Let's Talk <i data-lucide="arrow-up-right"
                     size="18"></i></a>
@@ -38,28 +31,21 @@
         <button class="menu-close-btn" id="closeMenu" aria-label="Close menu">
             <i data-lucide="x" size="40"></i>
         </button>
-        <a href="#work" class="dropdown-link">Incident Reports</a>
+        <a href="index.html#work" class="dropdown-link">Incident Reports</a>
         <a href="resume.pdf" target="_blank" class="dropdown-link">Resume</a>
         <a href="blog/index.html" class="dropdown-link">Blog</a>
         <a href="mailto:whoabhaysharma@gmail.com" class="dropdown-link">Contact</a>
     </div>
 
-    <header class="hero">
-        <p class="hero-intro">Hello! I'm Abhay.</p>
-        <h1 class="hero-title">
-            Building software that <span class="glitch" data-text="actually works">actually works</span> (mostly).
+    <header class="hero" style="padding-bottom: 20px;">
+        <h1 class="hero-title" style="font-size: clamp(2.5rem, 8vw, 6rem);">
+            All <span class="glitch" data-text="Incident Reports">Incident Reports</span>
         </h1>
-        <div class="hero-footer">
-            <p class="hero-desc">Full-stack developer focused on brutalist design, humorous content, and
-                high-performance applications.</p>
-            <a href="#work" class="btn-pill" style="width: fit-content;">View Incident Reports <i
-                    data-lucide="arrow-down" size="18"></i></a>
-        </div>
+        <p class="hero-desc">The complete logs of deployed chaos, unfinished experiments, and occasional successes.</p>
     </header>
 
     <main id="work">
-        <h2 class="section-header">Incident Reports</h2>
-        <div class="bento-grid">
+        <div class="bento-grid" style="margin-bottom: 100px;">
             <a href="https://QuixHR.com" target="_blank" class="card large">
                 <div class="status-badge" style="background: #ccff00;">Status: Operational</div>
                 <h3>QuixHR Platform</h3>
@@ -82,99 +68,26 @@
                 </div>
             </a>
 
-            <a href="projects.html" class="card" style="background: #000; color: #fff;">
-                <div class="status-badge" style="background: #fff; color: #000;">ARCHIVE_ID: ALL</div>
-                <h3>View All Projects</h3>
-                <p>Access the full database of experiments and deployed apps.</p>
-                <div class="card-footer" style="border-top-color: #fff;">
-                    <span>/PROJECTS.HTML</span>
-                    <i data-lucide="list" size="18"></i>
-                </div>
-            </a>
-        </div>
-
-        <h2 class="section-header">Love / Hate Relationship</h2>
-        <div class="tech-grid">
-            <div class="tech-card">
-                <div class="tech-header">
-                    <i data-lucide="code-2"></i>
-                    <span class="tech-title">Frontend</span>
-                </div>
-                <span class="tech-truth">"Centering divs since 2018"</span>
-                <div class="tag-container">
-                    <span class="tag">React</span>
-                    <span class="tag">Next.js</span>
-                    <span class="tag">Tailwind</span>
-                </div>
-            </div>
-
-            <div class="tech-card">
-                <div class="tech-header">
-                    <i data-lucide="database"></i>
-                    <span class="tech-title">Backend</span>
-                </div>
-                <span class="tech-truth">"It's a network issue, I swear."</span>
-                <div class="tag-container">
-                    <span class="tag">Node.js</span>
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">Prisma</span>
-                </div>
-            </div>
-
-            <div class="tech-card">
-                <div class="tech-header">
-                    <i data-lucide="cloud"></i>
-                    <span class="tech-title">Infrastructure</span>
-                </div>
-                <span class="tech-truth">"I pay the AWS bill and pray."</span>
-                <div class="tag-container">
-                    <span class="tag">Cloudflare</span>
-                    <span class="tag">AWS</span>
-                    <span class="tag">Docker</span>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-header">System Logs</h2>
-        <div class="logs-container">
-            <div class="log-entry">
-                <span class="log-time">09:00 AM</span>
-                <span class="log-msg">Applied coffee to system. VS Code initialized.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-time">01:30 PM</span>
-                <span class="log-msg">Resolved merge conflict. Lost 3 hours of sleep and my dignity.</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-time">04:00 PM</span>
-                <span class="log-msg">Feature works on my machine. Deploying to production (risky).</span>
-            </div>
-            <div class="log-entry">
-                <span class="log-time">03:00 AM</span>
-                <span class="log-msg">Debugging a bug that only exists when I try to sleep.</span>
-            </div>
-        </div>
-        <h2 class="section-header">Recent Transmissions</h2>
-        <div class="bento-grid">
-            <a href="blog/automating-my-resume.html" class="card">
-                <div class="status-badge" style="background: #000; color: #fff;">ARCHIVE_ID: 001</div>
-                <h3>Automating My Resume</h3>
-                <p>Why I stopped editing Word docs. I built a workflow that compiles my resume from LaTeX and Slacks me
-                    a fresh PDF.</p>
+            <div class="card">
+                <div class="status-badge">Status: Active</div>
+                <h3>file60</h3>
+                <p>Temporary file storage for 60 minutes. Upload files and they vanish after an hour.</p>
                 <div class="card-footer">
-                    <span>GITHUB_ACTIONS // AI</span>
-                    <i data-lucide="arrow-right" size="18"></i>
+                    <span>NODE // S3 // CRON</span>
+                    <i data-lucide="clock" size="18"></i>
                 </div>
-            </a>
-            <a href="blog/index.html" class="card" style="background: #f5f5f5; border-style: dashed;">
-                <div class="status-badge">ARCHIVE_ID: INDEX</div>
-                <h3>View All Transmission Logs</h3>
-                <p>Access the full database of rants, tutorials, and system failures.</p>
+            </div>
+
+            <div class="card">
+                <div class="status-badge">Status: In Progress</div>
+                <h3>Project Chaos</h3>
+                <p>A Cloudflare Worker experiment that rewrites news using AI. Currently refusing to cooperate with my
+                    API keys.</p>
                 <div class="card-footer">
-                    <span>/BLOG/INDEX.HTML</span>
-                    <i data-lucide="list" size="18"></i>
+                    <span>WORKERS // GEMINI</span>
+                    <i data-lucide="lock" size="18"></i>
                 </div>
-            </a>
+            </div>
         </div>
     </main>
 
