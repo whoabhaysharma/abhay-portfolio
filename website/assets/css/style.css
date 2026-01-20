@@ -389,3 +389,32 @@
                 gap: 5px;
             }
         }
+
+/* --- PROJECT CARDS CREATIVE UPDATE --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.project-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    border: 2px solid #000;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    background: #fff;
+    object-fit: contain;
+}
+
+.card:hover .project-logo {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 4px 4px 0px #000;
+}
+
+.card .status-badge {
+    margin-bottom: 0;
+    align-self: flex-start;
+}
