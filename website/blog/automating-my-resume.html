@@ -6,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon" href="../favicon.png">
-    <title>Automate Your Resume with AI & GitHub Actions - Abhay Sharma</title>
+    <title>How I Automated My Resume Updates (Because I'm Lazy) - Abhay Sharma</title>
     <meta name="description"
-        content="Learn how I automated my resume workflow using LaTeX, GitHub Actions, and Google's AI agent Jules. No more Word docs, just code-driven career updates.">
+        content="I hate updating resumes. So I made a robot do it. Here is how I used LaTeX, GitHub Actions, and AI to automate my career updates.">
     <meta name="keywords"
-        content="Resume Automation, GitHub Actions, LaTeX Resume, AI Resume Builder, DevOps for Resumes, Google Jules AI">
+        content="Resume Automation, GitHub Actions, LaTeX Resume, Lazy Developer, AI Resume Builder, Google Jules AI">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://whoabhaysharma.github.io/blog/automating-my-resume.html">
-    <meta property="og:title" content="Automate Your Resume with AI & GitHub Actions - Abhay Sharma">
+    <meta property="og:title" content="How I Automated My Resume Updates (Because I'm Lazy)">
     <meta property="og:description"
-        content="A no-touch workflow: Write instructions to AI -> GitHub builds PDF -> Slack delivers it.">
+        content="I talk to an AI, it writes code, a robot builds a PDF, and Slack pings me. Future living.">
     <meta property="og:image" content="https://whoabhaysharma.github.io/assets/images/resume-workflow.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://whoabhaysharma.github.io/blog/automating-my-resume.html">
-    <meta property="twitter:title" content="Automate Your Resume with AI & GitHub Actions">
-    <meta property="twitter:description" content="Stop editing Word docs. Treat your career like code.">
+    <meta property="twitter:title" content="How I Automated My Resume Updates (Because I'm Lazy)">
+    <meta property="twitter:description" content="I talk to an AI, it writes code, a robot builds a PDF, and Slack pings me. Future living.">
     <meta property="twitter:image" content="https://whoabhaysharma.github.io/assets/images/resume-workflow.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -350,108 +350,101 @@
     <article>
         <div class="article-meta">
             <span>2026-01-17</span>
-            <span>#AUTOMATION #AI</span>
+            <span>#AUTOMATION #LAZY_OPS</span>
         </div>
 
-        <h1>Automating My Resume with GitHub Actions & AI</h1>
+        <h1>How I Automated My Resume Updates (Because I'm Lazy)</h1>
 
         <p style="font-size: 1.3rem; font-weight: 600; color: var(--fg);">
-            Updating a resume is painful. Formatting margins in Word, dealing with PDF exports, and remembering
-            which version file is the current one. I decided to fix this forever.
+            Look, updating a resume is the worst. You fight with Word margins, export 15 different PDFs named "final_final_v2", and then lose the source file. I decided to overengineer a solution so I never have to deal with that again.
         </p>
 
         <img src="../assets/images/resume-workflow.png" alt="Resume Automation Workflow Diagram">
 
-        <h2>The Stack (Tools I Use)</h2>
+        <h2>The "Overkill" Tech Stack</h2>
         <p>
-            I built this automated system using a specific set of tools. Click on any of them to learn more:
+            I used a bunch of fancy tools to solve a simple problem. Why? Because I can.
         </p>
 
         <div class="stack-grid">
             <div class="stack-item">
-                <h3>LaTeX (The Language)</h3>
-                <p>Think of this as "writing code to create a PDF". Instead of dragging text boxes in Word, you write
-                    commands like <code>\section{Education}</code>.</p>
+                <h3>LaTeX (The Code)</h3>
+                <p>Because why drag and drop when you can write cryptic commands like <code>\section{Education}</code> and feel like a hacker?</p>
                 <a href="https://www.latex-project.org/" target="_blank">Learn LaTeX ↗</a>
             </div>
             <div class="stack-item">
-                <h3>GitHub Actions (The Robot)</h3>
-                <p>A service that automatically runs tasks. In this case, it acts as a "virtual printer" that creates
-                    the resume whenever I update the file.</p>
+                <h3>GitHub Actions (The Minion)</h3>
+                <p>My free cloud intern. It wakes up, builds my resume, and goes back to sleep. Doesn't ask for coffee breaks.</p>
                 <a href="https://github.com/features/actions" target="_blank">View Actions ↗</a>
             </div>
             <div class="stack-item">
-                <h3>Jules (Google AI)</h3>
-                <p>My artificial intelligence assistant. It understands plain English and writes the complicated LaTeX
-                    code for me.</p>
+                <h3>Jules (The Brains)</h3>
+                <p>My AI pal. I just rant about my new job, and it translates my rambling into professional resume-speak.</p>
                 <a href="https://cloud.google.com/ai-agents" target="_blank">Google Agents ↗</a>
             </div>
             <div class="stack-item">
-                <h3>TmpFiles (The Cloud)</h3>
-                <p>A simple service that temporarily hosts files so my "robot" can send me a downloadable link.</p>
+                <h3>TmpFiles (The Dropzone)</h3>
+                <p>A place to dump the file for 60 minutes so I can grab it. Simple, disposable, effective.</p>
                 <a href="https://tmpfiles.org/" target="_blank">Check Service ↗</a>
             </div>
         </div>
 
         <h2>How It Started</h2>
         <p>
-            I didn't write the original resume code from scratch. That would be painful. I asked <a
-                href="https://chatgpt.com/" target="_blank">ChatGPT</a> to "Create a modern resume template in LaTeX".
+            I’m not a LaTeX wizard. I did what any respectable engineer would do: I asked <a
+                href="https://chatgpt.com/" target="_blank">ChatGPT</a> to "Make me look professional in LaTeX".
         </p>
         <p>
-            I took that code and pasted it into <a href="https://www.overleaf.com/" target="_blank">Overleaf</a>, which
-            is an online editor that lets you see your PDF as you type. Once I was happy with how it looked, I saved the
-            file as <code>resume.tex</code> and uploaded it to my code repository.
+            I copy-pasted that into <a href="https://www.overleaf.com/" target="_blank">Overleaf</a>, fixed the weird typos, and saved it as <code>resume.tex</code>. Boom. Resume as Code. Version controlled career history.
         </p>
 
-        <h2>The "No-Touch" Workflow</h2>
+        <h2>The "Laziness" Workflow</h2>
         <p>
-            Now, I don't even need to open the file. Here is how I update my resume from my phone:
+            Now, when I need to update my resume, I don't even open the file. I treat my career updates like a drive-thru order.
         </p>
 
-        <h3>1. AI-Driven Updates</h3>
+        <h3>1. "Hey Jules, Fix This"</h3>
         <p>
-            I simply tell my AI agent, <a href="https://cloud.google.com/ai-agents" target="_blank">Jules</a>:
-            <em>"Add my new experience at Company X with these achievements..."</em>
+            I message my AI agent:
+            <em>"Yo, I just learned Kubernetes and saved the company 50 bucks. Add that to my resume."</em>
         </p>
         <p>
-            Jules understands what I mean, writes the complex code needed to add that section to the document, and
-            proposes the change.
+            Jules nods (digitally), writes the complex LaTeX markup, and opens a Pull Request.
         </p>
 
-        <h3>2. The "Virtual Printer"</h3>
+        <h3>2. The Cloud Factory</h3>
         <p>
-            Once I approve the change, <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a>
-            wakes up. It creates a temporary computer in the cloud that has all the font and printing tools installed.
+            I hit "Merge" on my phone. <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a>
+            spins up a server, installs a massive LaTeX distribution (sorry GitHub bandwidth), and compiles the document.
         </p>
         <p>
-            It takes my code, compiles it, and produces a brand new, pixel-perfect PDF file.
+            It creates a pixel-perfect PDF while I'm probably making a sandwich.
         </p>
 
         <img src="../assets/images/latex-editor.png" alt="LaTeX Code Editor Visualization">
 
-        <h3>3. Instant Delivery</h3>
+        <h3>3. Special Delivery</h3>
         <p>
-            The workflow finishes by uploading the new PDF to <a href="https://tmpfiles.org/"
-                target="_blank">tmpfiles.org</a> and sending a notification to my private <a href="https://slack.com/"
-                target="_blank">Slack</a> channel.
+            The robot finishes up, uploads the file to <a href="https://tmpfiles.org/"
+                target="_blank">tmpfiles.org</a>, and slides into my <a href="https://slack.com/"
+                target="_blank">Slack</a> DMs.
         </p>
         <ul>
-            <li>I approve the change on my phone.</li>
-            <li>30 seconds later, I get a message: "New Resume Ready" with a download link.</li>
+            <li>Ding! "New Resume Ready".</li>
+            <li>I click the link.</li>
+            <li>I send it to the recruiter.</li>
         </ul>
 
-        <h2>The Result?</h2>
+        <h2>Was It Worth It?</h2>
         <p>
-            I can be on my phone, approve a PR, and 30 seconds later, a fresh, perfectly formatted PDF resume
-            arrives in my Slack, ready to be forwarded to a recruiter.
+            I spent 10 hours automating a task that takes 10 minutes. So, obviously, yes.
         </p>
         <p>
-            No Word documents. No formatting issues. Just pure, automated efficiency.
+            But seriously, having my resume as code means no more formatting nightmares. And it just feels cool.
         </p>
 
         <div class="article-footer">
-            <p>Want to see the code?</p>
+            <p>Steal my code (I don't mind)</p>
             <a href="https://github.com/whoabhaysharma/abhay-portfolio" class="btn-pill">View on GitHub <i
                     data-lucide="arrow-up-right" size="18"></i></a>
         </div>
