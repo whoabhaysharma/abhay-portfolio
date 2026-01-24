@@ -107,6 +107,12 @@
             color: transparent;
         }
 
+        @media (max-width: 768px) {
+            .dropdown-link {
+                font-size: 2rem;
+            }
+        }
+
         .menu-close-btn {
             position: absolute;
             top: 40px;
