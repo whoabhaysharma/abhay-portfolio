@@ -5,14 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="EhI6rcgCWm5DofNfJmKAY4EcfJ9PgesB7BrmEA1IiZE" />
-    <title>Abhay Sharma // Projects</title>
+    <title>Abhay Sharma // Contact</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 
     <meta name="description"
-        content="Full-Stack Engineer. Expert at turning coffee into compile errors. Portfolio of Abhay Sharma.">
+        content="Contact Abhay Sharma. Send me a message, unless it's about crypto.">
     <meta name="author" content="Abhay Sharma">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -37,85 +44,61 @@
         <a href="contact.html" class="dropdown-link">Contact</a>
     </div>
 
-    <header class="hero" style="padding-bottom: 20px;">
-        <h1 class="hero-title" style="font-size: clamp(2.5rem, 8vw, 6rem);">
-            All <span class="glitch" data-text="Incident Reports">Incident Reports</span>
+    <header class="hero">
+        <p class="hero-intro">Communication Protocols</p>
+        <h1 class="hero-title">
+            Let's start a <span class="glitch" data-text="thread">thread</span>.
         </h1>
-        <p class="hero-desc">The complete logs of deployed chaos, unfinished experiments, and occasional successes.</p>
+        <div class="hero-footer">
+            <p class="hero-desc">Have a project? Found a bug in my code? Just want to say hi? I respond to most emails within 24 hours (unless I'm debugging).</p>
+        </div>
     </header>
 
-    <main id="work">
-        <div class="bento-grid" style="margin-bottom: 100px;">
-            <a href="https://QuixHR.com" target="_blank" class="card large">
+    <main id="contact-methods">
+        <div class="bento-grid">
+            <a href="mailto:whoabhaysharma@gmail.com" class="card large">
                 <div class="card-header">
-                    <img src="assets/images/projects/quixhr.ico" alt="QuixHR Logo" class="project-logo">
-                    <div class="status-badge" style="background: #ccff00;">Status: Operational</div>
+                     <i data-lucide="mail" size="48"></i>
+                    <div class="status-badge" style="background: #ccff00;">Status: Online</div>
                 </div>
-                <h3>QuixHR Platform</h3>
-                <p>An HR Management system built to handle employee chaos. Stripped of corporate jargon and replaced
-                    with features that actually matter.</p>
+                <h3>Email Me</h3>
+                <p>The classic way. Send me a message and I'll get back to you.</p>
                 <div class="card-footer">
-                    <span>REACT // NODE // POSTGRES</span>
+                    <span>SMTP // GMAIL</span>
+                    <i data-lucide="arrow-up-right" size="18"></i>
+                </div>
+            </a>
+
+            <a href="https://github.com/whoabhaysharma" target="_blank" class="card">
+                <div class="card-header">
+                     <i data-lucide="github" size="48"></i>
+                    <div class="status-badge" style="background: #000; color: #fff;">Status: Committing</div>
+                </div>
+                <h3>GitHub</h3>
+                <p>Check out my code. Judge my commit messages.</p>
+                <div class="card-footer">
+                    <span>GIT // REPO</span>
                     <i data-lucide="external-link" size="18"></i>
                 </div>
             </a>
 
-            <a href="https://Gyms24.in" target="_blank" class="card">
+            <a href="https://abhaysharma.pages.dev" target="_blank" class="card">
                 <div class="card-header">
-                    <img src="assets/images/projects/gyms24.svg" alt="Gyms24 Logo" class="project-logo">
-                    <div class="status-badge" style="background: #ff3e3e; color: #000;">Status: Critical Load</div>
+                     <i data-lucide="globe" size="48"></i>
+                    <div class="status-badge" style="background: #f5f5f5;">Status: Deployment</div>
                 </div>
-                <h3>Gyms24</h3>
-                <p>Gym booking platform. Optimized for speed because no one likes waiting for a page to load while
-                    they're at the squat rack.</p>
+                <h3>Portfolio</h3>
+                <p>The recursive link. You are already here, or maybe there?</p>
                 <div class="card-footer">
-                    <span>WHATSAPP_API // LAMBDA</span>
+                    <span>HTTPS // WEB</span>
                     <i data-lucide="external-link" size="18"></i>
                 </div>
             </a>
-
-            <a href="https://file60.pages.dev" target="_blank" class="card">
-                <div class="card-header">
-                    <img src="assets/images/projects/file60.png" alt="file60 Logo" class="project-logo">
-                    <div class="status-badge" style="background: #fff; color: #000;">Status: Active</div>
-                </div>
-                <h3>file60</h3>
-                <p>Temporary file storage for 60 minutes. Upload files and they vanish after an hour.</p>
-                <div class="card-footer">
-                    <span>NODE // S3 // CRON</span>
-                    <i data-lucide="clock" size="18"></i>
-                </div>
-            </a>
-
-            <div class="card">
-                <div class="card-header">
-                    <img src="assets/images/projects/project-chaos.svg" alt="Project Chaos Logo" class="project-logo">
-                    <div class="status-badge">Status: In Progress</div>
-                </div>
-                <h3>Project Chaos</h3>
-                <p>A Cloudflare Worker experiment that rewrites news using AI. Currently refusing to cooperate with my
-                    API keys.</p>
-                <div class="card-footer">
-                    <span>WORKERS // GEMINI</span>
-                    <i data-lucide="lock" size="18"></i>
-                </div>
-            </div>
         </div>
     </main>
 
-    <footer id="contact">
-        <h2 class="hero-title" style="margin-bottom: 20px;">Live <span class="glitch"
-                data-text="dangerously.">dangerously.</span></h2>
-        <div class="hero-footer">
-            <p class="hero-desc">If you have a budget for refactoring or just want to talk tech, hit me up.</p>
-            <div
-                style="display: flex; gap: 20px; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; margin-top: 20px;">
-                <a href="mailto:whoabhaysharma@gmail.com" style="color: inherit; text-decoration: none;">Email</a>
-                <a href="https://github.com/whoabhaysharma" style="color: inherit; text-decoration: none;">Github</a>
-                <a href="https://abhaysharma.pages.dev" style="color: inherit; text-decoration: none;">Portfolio</a>
-            </div>
-        </div>
-        <p style="margin-top: 80px; font-weight: 700; color: var(--grey); font-size: 0.8rem;">
+    <footer id="footer">
+        <p style="margin-top: 80px; font-weight: 700; color: var(--grey); font-size: 0.8rem; text-align: center;">
             © 2026 ABHAY SHARMA. NO RIGHTS RESERVED.
         </p>
     </footer>
@@ -178,7 +161,7 @@
         });
 
         // Tilt Effect for cards
-        const cards = document.querySelectorAll('.card, .tech-card');
+        const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();

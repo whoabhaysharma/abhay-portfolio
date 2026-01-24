@@ -132,6 +132,12 @@
             color: transparent;
         }
 
+        @media (max-width: 768px) {
+            .dropdown-link {
+                font-size: 2rem;
+            }
+        }
+
         .menu-close-btn {
             position: absolute;
             top: 40px;
@@ -292,7 +298,7 @@
         <a href="../index.html#work" class="dropdown-link">Incident Reports</a>
         <a href="../resume.pdf" target="_blank" class="dropdown-link">Resume</a>
         <a href="#" class="dropdown-link">Blog</a>
-        <a href="mailto:whoabhaysharma@gmail.com" class="dropdown-link">Contact</a>
+        <a href="../contact.html" class="dropdown-link">Contact</a>
     </div>
 
     <header class="header">
@@ -355,8 +361,8 @@
 
             gsap.to(mobileMenu, {
                 x: '0%',
-                duration: 0.6,
-                ease: 'power3.inOut'
+                duration: 0.4,
+                ease: 'power2.out'
             });
 
             gsap.fromTo(links,
@@ -376,8 +382,8 @@
             isMenuOpen = false;
             gsap.to(mobileMenu, {
                 x: '100%',
-                duration: 0.6,
-                ease: 'power3.inOut'
+                duration: 0.4,
+                ease: 'power2.out'
             });
         });
 
@@ -386,8 +392,8 @@
                 isMenuOpen = false;
                 gsap.to(mobileMenu, {
                     x: '100%',
-                    duration: 0.6,
-                    ease: 'power3.inOut'
+                    duration: 0.4,
+                    ease: 'power2.out'
                 });
             });
         });
