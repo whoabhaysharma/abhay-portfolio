@@ -1,0 +1,110 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Custom Colors
+\definecolor{primary}{RGB}{0, 0, 0}
+
+% Section Formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+% Custom command for aligned rows
+\newcommand{\resumeHeaderLine}[2]{
+  \noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2 \\
+  \end{tabular*}\vspace{-2pt}
+}
+
+\begin{document}
+
+% --- HEADER ---
+\begin{center}
+    {\Huge \textbf{Abhay Sharma}} \\
+    \vspace{4pt}
+    Senior Backend Developer \\
+    \vspace{2pt}
+    Faridabad, Haryana, India $\cdot$ +91 7210089184 $\cdot$ \href{mailto:whoabhaysharma@gmail.com}{whoabhaysharma@gmail.com} \\
+    \vspace{2pt}
+    \href{https://linkedin.com/in/whoabhaysharma}{linkedin.com/in/whoabhaysharma} $\cdot$ \href{https://github.com/whoabhaysharma}{github.com/whoabhaysharma} $\cdot$ \href{https://abhaysharma.pages.dev}{portfolio}
+\end{center}
+
+% --- SUMMARY ---
+\section{Professional Summary}
+Senior Backend Developer with 6+ years of experience specializing in scalable backend systems. Expert in Node.js, Express.js, and TypeScript, complemented by extensive experience building high-performance architectures. Proven ability to lead projects end-to-end—from database design to API implementation and production deployment.
+
+% --- SKILLS ---
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, labelsep=0.5em]
+    \item \textbf{Backend/Integration:} Node.js, Express.js, NestJS, Prisma, RESTful APIs, GraphQL, Microservices, Redis, PostgreSQL, MongoDB, WhatsApp Cloud API
+    \item \textbf{Frontend:} JavaScript (ES6+), TypeScript, React.js, Next.js (Basic knowledge)
+    \item \textbf{Tools:} Git, GitHub, Docker, Kubernetes, AWS, CI/CD, Postman
+\end{itemize}
+
+% --- EXPERIENCE ---
+\section{Professional Experience}
+
+\resumeHeaderLine{Techcrumb Solution Pvt. Ltd. (Dilogs.com)}{Faridabad, India}
+\textit{Senior Backend Developer} \hfill Oct 2023 – Present
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Spearheaded the end-to-end backend architecture for an AI-powered video ad creation platform.
+    \item Designed and implemented scalable RESTful APIs to handle heavy video processing workloads.
+    \item Optimized database queries and schema design to ensure low-latency data retrieval for the video editor.
+    \item Managed cloud infrastructure and deployment pipelines for high availability.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeHeaderLine{Techcrumb Solution Pvt. Ltd. (Performoo.com)}{Faridabad, India}
+\textit{Backend Developer} \hfill June 2020 – Oct 2023
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Architected and built the core backend services for a comprehensive ad-unit and campaign management platform using Node.js and Express.
+    \item Developed a high-throughput real-time analytics engine to capture and process engagement metrics.
+    \item Optimized API performance for the core video ad player, reducing latency and ensuring rapid content delivery.
+    \item Collaborated with frontend teams to define API contracts and ensure seamless data integration.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeHeaderLine{Techcrumb Solution Pvt. Ltd.}{Faridabad, India}
+\textit{Backend Developer Intern} \hfill Nov 2019 – Apr 2020
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Assisted in optimizing backend API performance for an ad player platform.
+    \item Worked on database migrations and query optimization.
+\end{itemize}
+
+% --- PROJECTS ---
+\section{Key Projects}
+
+\resumeHeaderLine{QuixHR.com | Leave Management SaaS}{Node.js, Express.js, Prisma}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Developed a multi-tenant leave management system for automated employee requests, approvals, and HR tracking.
+    \item Built scalable database schemas using Prisma to handle organizational hierarchies and multi-company data isolation.
+    \item Implemented secure authentication and authorization mechanisms.
+\end{itemize}
+
+\vspace{4pt}
+
+\resumeHeaderLine{Gyms24.in | Gym Booking Platform}{Node.js, PostgreSQL, WhatsApp API}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Engineered backend services for a gym discovery platform utilizing WhatsApp Cloud API.
+    \item Implemented transactional logic for booking and membership verification.
+    \item Integrated a secure QR code verification system for gym owners to scan and verify membership status at entry points.
+\end{itemize}
+
+% --- EDUCATION ---
+\section{Education}
+\resumeHeaderLine{Echelon Institute of Technology}{Faridabad, India}
+\textit{B.Tech., Computer Science \& Engineering (GPA: 7.4/10)} \hfill 2016 – 2020
+
+% --- INTERESTS ---
+\section{Interests}
+Watching sci-fi movies, creating innovative solutions for daily life problems, and listening to music.
+
+\end{document}
